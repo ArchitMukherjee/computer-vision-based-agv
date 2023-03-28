@@ -76,7 +76,7 @@ def listener():
             dim.append(dim1)
             dim.append(dim2)
             layout.dim = dim
-            layout.data_offset = 0
+            layout.data_offset = 2
 
             path_msg.layout = layout
             path_data=[item for sublist in path for item in sublist]
