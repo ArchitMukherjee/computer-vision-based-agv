@@ -76,7 +76,8 @@ def pose_estimation(frame, aruco_dict_type, matrix_coefficients, distortion_coef
             rvec, tvec, markerPoints = cv.aruco.estimatePoseSingleMarkers(corners[i], 0.02, matrix_coefficients, distortion_coefficients)
             R=Rmatrix(np.array(rvec))
             theta = rotationMatrixToEulerAngles(R)[2]
-            theta = theta*180/math.pi
+            #theta = theta*180/math.pi
+            theta = (math.pi/2)-theta
             #cv.aruco.drawDetectedMarkers(frame, corners) 
 
             #cv.drawFrameAxes(frame, matrix_coefficients, distortion_coefficients, rvec, tvec, 0.01) 
@@ -108,7 +109,7 @@ def aruco_display(corners, ids, rejected, image):
             
             x = cX//grids
             y = cY//grids
-            mat[y,x] = 0
+            mat[y,x] = 2
     return image, x, y, mat
 
 def get_pose():

@@ -41,3 +41,10 @@ def get_map():
     mat,img = Object.yolo(img,mat,50,xmat,ymat)
     return mat
 
+'''
+mat = get_map()
+from matplotlib import pyplot as plt
+
+plt.imshow(mat)
+plt.show()
+'''

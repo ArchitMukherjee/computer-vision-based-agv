@@ -20,7 +20,7 @@ def callback1(message):
     for x in range(len(path_list)//2):
         final_path.append([path_list[2*x],path_list[2*x+1]])
     path = final_path
-    rospy.loginfo("In /path callback: " + str(path))
+    #rospy.loginfo("In /path callback: " + str(path))
     flag = 1
 
 def callback2(message):
@@ -58,9 +58,9 @@ def listener():
         global flag
         if flag == 1:
             iter=0
-            rospy.loginfo("In while loop: "+str(path))
+            #rospy.loginfo("In while loop: "+str(path))
             x_target,y_target = path[iter][0],path[iter][1]
-            while((x,y != x_target,y_target)or(not rospy.is_shutdown())):
+            while((x,y != x_target,y_target)and(not rospy.is_shutdown())):
                 inc_x = x_target -x
                 inc_y = y_target -y
 
