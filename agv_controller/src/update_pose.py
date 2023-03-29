@@ -13,17 +13,19 @@ def pose_updater():
 
     rate = rospy.Rate(1) # 1hz
     #time.sleep(5)
-    x_bot,y_bot,theta=Main.get_current_pose()
     while not rospy.is_shutdown():
+        x_bot,y_bot,theta=Main.get_current_pose()
         pose.x = x_bot
         pose.y = y_bot
         pose.theta = theta
         rospy.loginfo(pose)
         pub.publish(pose)
         rate.sleep()
+    
 
 if __name__ == '__main__':
     try:
         pose_updater()
     except rospy.ROSInterruptException:
+        
         pass

@@ -58,13 +58,15 @@ def listener():
         global flag
         if flag == 1:
             iter=0
-            #rospy.loginfo("In while loop: "+str(path))
+            rospy.loginfo("In while loop: "+str(path))
             x_target,y_target = path[iter][0],path[iter][1]
             while((x,y != x_target,y_target)and(not rospy.is_shutdown())):
-                inc_x = x_target -x
-                inc_y = y_target -y
-
-                angle_to_goal = math.atan2(inc_y, inc_x)
+                inc_x_mat = x_target -x
+                inc_y_mat = y_target -y
+                inc_x_img, inc_y_img = inc_y_mat, inc_x_mat
+                angle_to_goal = math.atan2(inc_y_img, inc_x_img)
+                rospy.loginfo(angle_to_goal - theta)
+                rospy.loginfo("Current: " + str(x)+str(y) + "/nTarget: " + str(x_target)+str(y_target) + "/nDel: " + str(inc_x_img)+str(inc_y_img))
 
                 if abs(angle_to_goal - theta) > 0.1:
                     speed.linear.x = 0.0

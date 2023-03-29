@@ -63,8 +63,8 @@ def astar_diagonal(maze, start, end):
     path = np.array(path)
     path_list=path.tolist()
     path_list = path_list[1:len(path_list)]
-    for i in range(len(path_list)):
-        path_list[i] = path_list[i][1],path_list[i][0]
+    #for i in range(len(path_list)):
+    #    path_list[i] = path_list[i][1],path_list[i][0]
     return path_list
 
 '''
