@@ -1,0 +1,5 @@
+<launch>
+  <node name="planner" pkg="agv_controller" type="update_path.py" output="screen"/>
+  <node name="controller" pkg="agv_controller" type="update_vel.py" output="screen"/>
+  <node name="updater" pkg="agv_controller" type="update_pose.py" output="screen"/>
+</launch>
